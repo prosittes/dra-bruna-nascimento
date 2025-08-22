@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laserterapia • Bio Luz • Cicatrização</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9fafb; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: white; border-bottom: 1px solid #ddd; position: sticky; top: 0; }
+        header .left { display: flex; align-items: center; gap: 10px; }
+        header img { height: 50px; border-radius: 8px; }
+        header h1 { font-size: 20px; margin: 0; color: #333; }
+        header .buttons a { margin-left: 10px; text-decoration: none; padding: 8px 14px; border-radius: 6px; color: white; font-size: 14px; }
+        .whatsapp { background: #25D366; }
+        .instagram { background: #E1306C; }
+        .email { background: #0072c6; }
+        .foto-identidade { display: flex; justify-content: center; margin-top: 20px; }
+        .foto-identidade img { max-width: 200px; border-radius: 12px; }
+        main { max-width: 500px; margin: 20px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        form input, form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; }
+        form button { background: #25D366; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; }
+        form button:hover { background: #1ebe57; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <img src="imagens/logo.jpeg" alt="Logo">
+            <h1>Dra Bruna Nascimento</h1>
+        </div>
+        <div class="buttons">
+            <a href="https://wa.me/5512997968579" target="_blank" class="whatsapp">WhatsApp</a>
+            <a href="https://www.instagram.com/bioluz.cicatrizacao/profilecard/?igsh=NmVkZTBnbmhzdXlj" target="_blank" class="instagram">Instagram</a>
+            <a href="mailto:Bioluzcicatrizacao@gmail.com" class="email">E-mail</a>
+        </div>
+    </header>
+    
+    <div class="foto-identidade">
+        <img src="imagens/foto.jpg" alt="Foto da profissional">
+    </div>
+
+    <main>
+        <h2>Agende seu atendimento</h2>
+        <form onsubmit="enviarWhatsApp(event)">
+            <input type="text" name="nome" placeholder="Seu nome">
+            <input type="number" name="idade" placeholder="Sua idade">
+            <input type="text" name="cidade" placeholder="Cidade onde mora">
+            <textarea name="sintomas" placeholder="O que está sentindo"></textarea>
+            <label><input type="checkbox" name="condicao"> Possui alguma condição de saúde?</label>
+            <input type="text" name="condicaoDesc" placeholder="Descreva a condição (opcional)">
+            <input type="text" name="horario" placeholder="Melhor horário para contato">
+            <button type="submit">Enviar pelo WhatsApp</button>
+        </form>
+    </main>
+
+    <script>
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            const form = event.target;
+            const nome = form.nome.value;
+            const idade = form.idade.value;
+            const cidade = form.cidade.value;
+            const sintomas = form.sintomas.value;
+            const condicao = form.condicao.checked ? "Sim: " + form.condicaoDesc.value : "Não";
+            const horario = form.horario.value;
+            
+            let mensagem = "Novo contato do site:%0A";
+            mensagem += nome ? "Nome: " + nome + "%0A" : "";
+            mensagem += idade ? "Idade: " + idade + "%0A" : "";
+            mensagem += cidade ? "Cidade: " + cidade + "%0A" : "";
+            mensagem += sintomas ? "Sintomas: " + sintomas + "%0A" : "";
+            mensagem += "Condição de saúde: " + condicao + "%0A";
+            mensagem += horario ? "Melhor horário: " + horario : "";
+            
+            window.open("https://wa.me/5512997968579?text=" + mensagem, "_blank");
+        }
+    </script>
+</body>
+</html>
