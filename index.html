@@ -13,7 +13,17 @@
     h1, h2 { text-align: center; }
     form { display: flex; flex-direction: column; gap: 10px; }
     label { font-weight: bold; }
-    input, textarea, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      color: #000; /* Texto digitado em preto */
+      background-color: #fff;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #888; /* Placeholder cinza claro */
+    }
     button { background: #25D366; color: #fff; border: none; padding: 15px; font-size: 16px; border-radius: 5px; cursor: pointer; }
     button:hover { background: #1ebe5d; }
     footer { text-align: center; padding: 20px; font-size: 14px; background: #ffffff; margin-top: 20px; }
@@ -31,28 +41,28 @@
     <h2>Formulário de Contato</h2>
     <form id="contactForm">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
       <label for="idade">Idade:</label>
-      <input type="number" id="idade" name="idade" required>
+      <input type="number" id="idade" name="idade" placeholder="Digite sua idade" required>
 
       <label for="cidade">Cidade:</label>
-      <input type="text" id="cidade" name="cidade" required>
+      <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
 
       <label for="sintomas">O que está sentindo?</label>
-      <textarea id="sintomas" name="sintomas" required></textarea>
+      <textarea id="sintomas" name="sintomas" placeholder="Descreva seus sintomas" required></textarea>
 
       <label for="condicao">Possui alguma condição de saúde?</label>
-      <input type="text" id="condicao" name="condicao">
+      <input type="text" id="condicao" name="condicao" placeholder="Informe se tiver">
 
       <label for="horario">Melhor horário para contato:</label>
-      <input type="text" id="horario" name="horario">
+      <input type="text" id="horario" name="horario" placeholder="Ex.: manhã, tarde ou noite">
 
       <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email">
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
 
       <label for="tel">Telefone/WhatsApp:</label>
-      <input type="text" id="tel" name="tel">
+      <input type="text" id="tel" name="tel" placeholder="(xx) xxxxx-xxxx">
 
       <button type="submit">Enviar via WhatsApp</button>
     </form>
